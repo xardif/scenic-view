@@ -1,0 +1,3 @@
+Main-Class: org.scenicview.Main
+Agent-Class: org.fxconnector.remote.RuntimeAttach
+Premain-Class: org.scenicview.ScenicView
