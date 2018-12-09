@@ -16,7 +16,7 @@ deploy:
   - provider: releases
     api_key: "$GH_TOKEN"
     file: 
-      - scenic-view/target/ScenicView-$project_version.jar
+      - target/ScenicView-$project_version.jar
     skip_cleanup: true
     on:
       repo: xardif/scenic-view
