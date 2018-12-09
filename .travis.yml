@@ -2,11 +2,14 @@ language: java
 jdk: oraclejdk11
 sudo: false
 script: mvn clean verify
+before_deploy:
+  - mvn help:evaluate -N -Dexpression=project.version|grep -v '\['
+  - export project_version=$(mvn help:evaluate -N -Dexpression=project.version|grep -v '\[')
 deploy:
   provider: releases
     api_key: "$GH_TOKEN"
     file: 
-      - "target/ScenicView-11.0.0.jar"
+      - scenic-view/target/ScenicView-$project_version.jar
     skip_cleanup: true
     on:
       repo: xardif/scenic-view
