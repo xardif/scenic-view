@@ -1,3 +1,5 @@
+[![travis](https://travis-ci.com/xardif/scenic-view.svg?branch=master)](https://travis-ci.com/xardif/scenic-view)
+
 # Scenic View
 ScenicView with Java 11 support including usage of OpenJFX
 
