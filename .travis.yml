@@ -1,3 +1,5 @@
+before_install:
+  - echo -e "machine github.com\n  login $GH_TOKEN" > ~/.netrc
 language: java
 jdk: oraclejdk11
 sudo: false
