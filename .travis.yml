@@ -10,5 +10,4 @@ deploy:
   skip_cleanup: true
   on:
     repo: xardif/scenic-view
-    tags: true
   name: $project_version
