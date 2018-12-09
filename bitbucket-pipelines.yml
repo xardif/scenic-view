@@ -11,5 +11,14 @@ pipelines:
         caches:
           - maven
         script: # Modify the commands below to build your repository.
-          # - mvn -B verify # -B batch mode makes Maven less verbose
+          - mvn -B verify # -B batch mode makes Maven less verbose
+    - step:
+        name: Deploy to test
+        deployment: production   # can be test, staging or production.
+        # trigger: manual  # Uncomment to make this a manual deployment.
+        caches:
+          - maven
+        script:
           - mvn package
+          - echo "Deploying to test environment"
+          - curl -X POST --user "${BB_AUTH_STRING}" "https://api.bitbucket.org/2.0/repositories/${BITBUCKET_REPO_OWNER}/${BITBUCKET_REPO_SLUG}/downloads/pipeline_deploy" --form files=@"target/ScenicView-11.0.0.jar"
