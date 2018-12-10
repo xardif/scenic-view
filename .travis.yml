@@ -10,6 +10,7 @@ before_deploy:
   # Set up git user name and tag this commit
   - git config --local user.name "$GH_NAME"
   - git config --local user.email "$GH_MAIL"
+  - echo $TRAVIS_TAG
   - export TRAVIS_TAG=${project_version-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
   - echo $TRAVIS_TAG
   - echo $(date +'%Y%m%d%H%M%S')
