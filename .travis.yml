@@ -10,7 +10,7 @@ before_deploy:
   # Set up git user name and tag this commit
   - git config --local user.name "$GH_NAME"
   - git config --local user.email "$GH_MAIL"
-  - export TRAVIS_TAG=${$project_version-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
+  - export TRAVIS_TAG=${project_version-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
   - git tag $TRAVIS_TAG
 deploy:
   - provider: releases
